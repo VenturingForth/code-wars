@@ -15,7 +15,18 @@ describe("Should convert a string to title case i.e. Capitalise each word apart 
         const title = "of the and";
         const exceptions = "of the and";
         const result = titleCase(title, exceptions);
-
-        
+        expect(result).toBe("of the and");
+    })
+    test("Should correctly convert any lower case sentence to title case", () => {
+        const title = "whirlwind of the dancing cows";
+        const exceptions = "of the";
+        const result = titleCase(title, exceptions);
+        expect(result).toBe("Whirlwind of the Dancing Cows");
+    })
+    test("Should correctly convert a mixed case sentence to title case", () => {
+        const title = "whIRlwIND OF the DANcing cowS";
+        const exceptions = "of the";
+        const result = titleCase(title, exceptions);
+        expect(result).toBe("Whirlwind of the Dancing Cows");
     })
 })
